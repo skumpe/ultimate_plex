@@ -1,5 +1,9 @@
 # ultimate_plex
-Ultimate Plex setup (2 servers, one for downloading, one for streaming)
+Ultimate Plex setup (2 servers, one for downloading, one for streaming).
+
+This is based on my personal setup, and should probably not be used by anyone but me at this point :D
+
+Initial configuration will be designed and tested on Ubuntu 16.04, other Linux variations to follow.
 
 #ToDo List
 - [x] Make ToDo List
@@ -24,3 +28,7 @@ Ultimate Plex setup (2 servers, one for downloading, one for streaming)
 - [ ] Install and configure Apache
 - [ ] Install and configure Lets Encrypt
 - [ ] Install and configure Organizr
+- [ ] Figure out and implement auto-update mechanism
+- [ ] Install and configure Plexdrive
+- [ ] Install and configure rClone
+- [ ] Install and configure unionfs
