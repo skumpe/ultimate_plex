@@ -21,4 +21,4 @@ fi
 
 #add the Sonarr key and repo, test to see if silent! (its probably not)
 apt-key adv --keyserver keyserver.ubuntu.com --recv-keys FDA5DFFC > /dev/null 2>&1
-echo "deb http://apt.sonarr.tv/ master main" | tee /etc/apt/sources.list.d/sonarr.list
+echo "deb http://apt.sonarr.tv/ master main" > /etc/apt/sources.list.d/sonarr.list
