@@ -23,10 +23,12 @@ fi
 /usr/sbin/useradd -m -s /bin/bash plex
 message "Successfully added Plex user"
 
-#add the Sonarr key and repo, test to see if silent! (its probably not)
+#add the keys and repos, test to see if silent! (its probably not)
 /usr/bin/apt-key adv --keyserver keyserver.ubuntu.com --recv-keys FDA5DFFC > /dev/null 2>&1
 echo "deb http://apt.sonarr.tv/ master main" > /etc/apt/sources.list.d/sonarr.list
 message "Successfully added Sonarr repo to apt"
+add-apt-repository ppa:jcfp/nobetas
+message "Successfully added SABnzbd repo to apt"
 
 #update apt repo data, install Sonarr and change ownership to the plex user (dont freak out about the package name, Sonarr used to be NZBDrone)
 echo "Installing Sonarr and dependencies..."
@@ -40,4 +42,4 @@ cp -fr ./sonarr.service /etc/systemd/system/
 /bin/systemctl daemon-reload
 /bin/systemctl enable sonarr.service > /dev/null 2>&1
 /bin/systemctl start sonarr.service
-message "Sonar service installed, enabled to start on boot, and started"
+message "Sonar service installed, enabled to start on boot, and started" 
