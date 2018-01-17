@@ -22,5 +22,9 @@ fi
 #add the Sonarr key and repo, test to see if silent! (its probably not)
 apt-key adv --keyserver keyserver.ubuntu.com --recv-keys FDA5DFFC > /dev/null 2>&1
 echo "deb http://apt.sonarr.tv/ master main" > /etc/apt/sources.list.d/sonarr.list
-echo -e "\n"
 message "Successfully added Sonarr repo to apt"
+
+#update apt repo data, install Sonarr (dont freak out about the package name, Sonarr used to be NZBDrone)
+apt-get update > /dev/null 2>&1
+apt-get install nzbdrone -y /dev/null 2>&1
+message "Sonarr installed successfully"
