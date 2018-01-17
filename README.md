@@ -19,11 +19,11 @@ Initial configuration will be designed and tested on Ubuntu 16.04, other Linux v
 - [ ] Secure the things
 - [x] Create Plex user account
 - [x] Install and configure Sonarr
-- [ ] Install and configure Radarr
-- [ ] Install and configure Sabnzbd
-- [ ] Install and configure Deluge
+- [x] Install and configure Radarr
+- [x] Install and configure Sabnzbd
+- [x] Install and configure Deluge
 - [ ] If Deluge, install and configure Jackett
-- [ ] Install and configure Ombi
+- [x] Install and configure Ombi
 - [ ] Install and configure PlexPy
 - [ ] Install and configure Apache
 - [ ] Install and configure Lets Encrypt
