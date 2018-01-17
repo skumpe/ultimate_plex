@@ -7,18 +7,18 @@ Initial configuration will be designed and tested on Ubuntu 16.04, other Linux v
 
 #ToDo List
 - [x] Make ToDo List
-- [ ] Decide if ToDo list is the right choice
-- [ ] Possibly replace ToDo list with something else
+- [x] Decide if ToDo list is the right choice
+- [x] Possibly replace ToDo list with something else
 - [x] Procrastinate
-- [ ] Fill out ToDo list or replacement with actual things that need to be done
-- [ ] Create outline of steps needed to complete
-- [ ] Start replacing outline with actual things
+- [x] Fill out ToDo list or replacement with actual things that need to be done
+- [x] Create outline of steps needed to complete
+- [x] Start replacing outline with actual things
 
-##Outline
+##Outline (since I actually did replace the todo list with github issues, this is more of a "Things that need issues created" list)
 - [ ] Gather user input
 - [ ] Secure the things
-- [ ] Create Plex user account
-- [ ] Install and configure Sonarr
+- [x] Create Plex user account
+- [x] Install and configure Sonarr
 - [ ] Install and configure Radarr
 - [ ] Install and configure Sabnzbd
 - [ ] Install and configure Deluge
