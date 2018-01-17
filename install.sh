@@ -29,7 +29,7 @@ echo "deb http://apt.sonarr.tv/ master main" > /etc/apt/sources.list.d/sonarr.li
 message "Successfully added Sonarr repo to apt"
 
 #update apt repo data, install Sonarr and change ownership to the plex user (dont freak out about the package name, Sonarr used to be NZBDrone)
-echo "Installing Sonarr..."
+echo "Installing Sonarr and dependencies..."
 /usr/bin/apt-get update > /dev/null 2>&1
 /usr/bin/apt-get install nzbdrone -y > /dev/null 2>&1
 /bin/chown -R plex: /opt/NzbDrone
@@ -40,3 +40,4 @@ cp -fr ./sonarr.service /etc/systemd/system/
 /bin/systemctl daemon-reload
 /bin/systemctl enable sonarr.service > /dev/null 2>&1
 /bin/systemctl start sonarr.service
+message "Sonar service installed, enabled to start on boot, and started"
