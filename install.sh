@@ -27,7 +27,7 @@ message "Successfully added Plex user"
 /usr/bin/apt-key adv --keyserver keyserver.ubuntu.com --recv-keys FDA5DFFC > /dev/null 2>&1
 echo "deb http://apt.sonarr.tv/ master main" > /etc/apt/sources.list.d/sonarr.list
 message "Successfully added Sonarr repo to apt"
-add-apt-repository -y ppa:jcfp/nobetas /dev/null 2>&1
+/usr/bin/add-apt-repository -y ppa:jcfp/nobetas > /dev/null 2>&1
 message "Successfully added SABnzbd repo to apt"
 
 #update apt repo data, install Sonarr and change ownership to the plex user (dont freak out about the package name, Sonarr used to be NZBDrone)
