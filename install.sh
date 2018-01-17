@@ -34,3 +34,9 @@ echo "Installing Sonarr..."
 /usr/bin/apt-get install nzbdrone -y > /dev/null 2>&1
 /bin/chown -R plex: /opt/NzbDrone
 message "Sonarr installed successfully"
+
+#Copy the systemd service file for Sonarr in to place, enable during startup, and start the service
+cp -fr ./sonarr.service /etc/systemd/service/
+/bin/systemctl daemon-reload
+/bin/systemctl enable sonarr.service
+/bin/systemctl start sonarr.service

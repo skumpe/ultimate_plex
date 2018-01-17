@@ -1,0 +1,18 @@
+[Unit]
+Description=Sonarr Daemon
+#The following is disabled for now, but will be useful once Google Drive integration is completed
+#After=plexunion.service
+
+[Service]
+User=plex
+Group=plex
+
+Type=simple
+ExecStart=/usr/bin/mono /opt/NzbDrone/NzbDrone.exe -nobrowser
+TimeoutStopSec=20
+KillMode=process
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target
+
