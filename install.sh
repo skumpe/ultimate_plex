@@ -26,5 +26,5 @@ message "Successfully added Sonarr repo to apt"
 
 #update apt repo data, install Sonarr (dont freak out about the package name, Sonarr used to be NZBDrone)
 apt-get update > /dev/null 2>&1
-apt-get install nzbdrone -y /dev/null 2>&1
+apt-get install nzbdrone -y > /dev/null 2>&1
 message "Sonarr installed successfully"
