@@ -25,7 +25,7 @@ echo "Adding plex user"
 message "Successfully added Plex user"
 
 #add the keys and repos, test to see if silent! (its probably not)
-Echo "Adding needed repos and corresponding keys"
+echo "Adding needed repos and corresponding keys"
 /usr/bin/apt-key adv --keyserver keyserver.ubuntu.com --recv-keys FDA5DFFC > /dev/null 2>&1
 echo "deb http://apt.sonarr.tv/ master main" > /etc/apt/sources.list.d/sonarr.list
 message "Successfully added Sonarr repo to apt"
