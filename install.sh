@@ -36,7 +36,7 @@ echo "Installing Sonarr..."
 message "Sonarr installed successfully"
 
 #Copy the systemd service file for Sonarr in to place, enable during startup, and start the service
-cp -fr ./sonarr.service /etc/systemd/service/
+cp -fr ./sonarr.service /etc/systemd/system/
 /bin/systemctl daemon-reload
 /bin/systemctl enable sonarr.service
 /bin/systemctl start sonarr.service
