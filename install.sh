@@ -60,6 +60,7 @@ cd /root/Downloads
 /bin/tar -xf Radarr.*.linux.tar.gz
 /bin/mv /root/Downloads/Radarr /opt/Radarr
 /bin/chown -R plex: /opt/Radarr
+/bin/rm -rf /root/Downloads/Radarr.*
 message "Radarr installed successfully"
 
 #Copy the systemd service file for Sonarr in to place, enable during startup, and start the service
