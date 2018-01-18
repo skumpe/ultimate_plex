@@ -38,7 +38,8 @@ info "Adding needed repos and corresponding keys"
 info "deb http://apt.sonarr.tv/ master main" > /etc/apt/sources.list.d/sonarr.list
 message "Successfully added Sonarr repo to apt"
 /usr/bin/add-apt-repository -y ppa:jcfp/nobetas > /dev/null 2>&1
-message "Successfully added SABnzbd repo to apt"
+/usr/bin/add-apt-repository -y ppa:jcfp/sab-addons > /dev/null 2>&1
+message "Successfully added SABnzbd repos to apt"
 
 #update apt repo data, install Sonarr and change ownership to the plex user (dont freak out about the package name, Sonarr used to be NZBDrone)
 info "Installing Sonarr and dependencies..."
@@ -52,7 +53,7 @@ info "Installing Radarr dependencies..."
 /usr/bin/apt-get install libmono-cil-dev curl mediainfo -y > /dev/null 2>&1
 message "Radarr deps installed successfully"
 
-#With the deps isntalled, time to install Radarr. Its currently in beta and there is no repo, so we need to get it from github and unpack it, etc
+#With the deps installed, time to install Radarr. Its currently in beta and there is no repo, so we need to get it from github and unpack it, etc
 info "Downloading and installing Radarr..."
 /bin/mkdir -p /root/Downloads
 cd /root/Downloads
@@ -62,6 +63,11 @@ cd /root/Downloads
 /bin/chown -R plex: /opt/Radarr
 /bin/rm -rf /root/Downloads/Radarr.*
 message "Radarr installed successfully"
+
+#Install SABnzbd and deps
+info "Installing SABnzbdplus and dependencies..."
+/usr/bin/apt-get install sabnzbdplus python-sabyenc par2-tbb -y
+message "SABnzbd installed successfully"
 
 #Copy the systemd service file for Sonarr in to place, enable during startup, and start the service
 /bin/cp -fr $APPDIR/sonarr.service /etc/systemd/system/
