@@ -69,6 +69,22 @@ info "Installing SABnzbdplus and dependencies..."
 /usr/bin/apt-get install sabnzbdplus python-sabyenc par2-tbb -y > /dev/null 2>&1
 message "SABnzbd installed successfully"
 
+#Install Ombi deps
+info "Installing Ombi dependencies..."
+/usr/bin/apt-get install libunwind8 -y > /dev/null 2>&1
+message "Ombi dependencies installed successfully"
+
+#Download latest build of Ombi, unpack, own, etc
+#This may not be a permalink to the latest build, need to work on that
+info "Downloading and installing Ombi"
+/bin/mkdir -p /opt/Ombi
+cd /opt/Ombi
+/usr/bin/wget -q https://ci.appveyor.com/api/buildjobs/54kqh2ixun6v55vq/artifacts/linux.tar.gz
+/bin/tar xzf linux.tar.gz
+/bin/chmod +x Ombi
+/bin/chown -R plex: /opt/Ombi
+message "Ombi installed successfully"
+
 #Copy the systemd service file for Sonarr in to place, enable during startup, and start the service
 /bin/cp -fr $APPDIR/sonarr.service /etc/systemd/system/
 /bin/systemctl daemon-reload
@@ -88,4 +104,11 @@ message "Radarr service installed, enabled to start on boot, and started"
 /bin/systemctl daemon-reload
 /bin/systemctl enable sabnzbd.service > /dev/null 2>&1
 /bin/systemctl start sabnzbd.service
-message "SABnzbd service installed, enabled to start on boot, and started" 
+message "SABnzbd service installed, enabled to start on boot, and started"
+
+#Copy the systemd service file for Ombi in to place, enable during startup, and start the service
+/bin/cp -fr $APPDIR/ombi.service /etc/systemd/system/
+/bin/systemctl daemon-reload
+/bin/systemctl enable ombi.service > /dev/null 2>&1
+/bin/systemctl start ombi.service
+message "Ombi service installed, enabled to start on boot, and started" 
