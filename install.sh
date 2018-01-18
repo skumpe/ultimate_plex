@@ -24,6 +24,9 @@ if [[ $EUID -gt 0 ]]; then
 	    sleep 10
 fi
 
+#Get the current directory for future use
+APPDIR = $(/bin/pwd)
+
 #Add the plex user, for now with no password to prevent remote logins, may change in future
 info "Adding plex user"
 /usr/sbin/useradd -m -s /bin/bash plex
@@ -51,16 +54,16 @@ message "Radarr deps installed successfully"
 
 #With the deps isntalled, time to install Radarr. Its currently in beta and there is no repo, so we need to get it from github and unpack it, etc
 info "Downloading and installing Radarr..."
-mkdir -p /root/Downloads
+/bin/mkdir -p /root/Downloads
 cd /root/Downloads
-wget -q $( curl -s https://api.github.com/repos/Radarr/Radarr/releases | grep linux.tar.gz | grep browser_download_url | head -1 | cut -d \" -f 4 )
-tar -xf Radarr.*.linux.tar.gz
-mv /root/Downloads/Radarr /opt/Radarr
-chown -R plex: /opt/Radarr
+/usr/bin/wget -q $( /usr/bin/curl -s https://api.github.com/repos/Radarr/Radarr/releases | /bin/grep linux.tar.gz | /bin/grep browser_download_url | /usr/bin/head -1 | /usr/bin/cut -d \" -f 4 )
+/bin/tar -xf Radarr.*.linux.tar.gz
+/bin/mv /root/Downloads/Radarr /opt/Radarr
+/bin/chown -R plex: /opt/Radarr
 message "Radarr installed successfully"
 
 #Copy the systemd service file for Sonarr in to place, enable during startup, and start the service
-cp -fr ./sonarr.service /etc/systemd/system/
+/bin/cp -fr $APPDIR/sonarr.service /etc/systemd/system/
 /bin/systemctl daemon-reload
 /bin/systemctl enable sonarr.service > /dev/null 2>&1
 /bin/systemctl start sonarr.service
