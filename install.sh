@@ -81,4 +81,11 @@ message "Sonarr service installed, enabled to start on boot, and started"
 /bin/systemctl daemon-reload
 /bin/systemctl enable radarr.service > /dev/null 2>&1
 /bin/systemctl start radarr.service
-message "Radarr service installed, enabled to start on boot, and started" 
+message "Radarr service installed, enabled to start on boot, and started"
+
+#Copy the systemd service file for SAB in to place, enable during startup, and start the service
+/bin/cp -fr $APPDIR/sabnzbd.service /etc/systemd/system/
+/bin/systemctl daemon-reload
+/bin/systemctl enable sabnzbd.service > /dev/null 2>&1
+/bin/systemctl start sabnzbd.service
+message "SABnzbd service installed, enabled to start on boot, and started" 
