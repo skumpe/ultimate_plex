@@ -25,7 +25,7 @@ if [[ $EUID -gt 0 ]]; then
 fi
 
 #Get the current directory for future use
-APPDIR = $(/bin/pwd)
+$APPDIR = $(/bin/pwd)
 
 #Add the plex user, for now with no password to prevent remote logins, may change in future
 info "Adding plex user"
