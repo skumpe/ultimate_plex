@@ -50,12 +50,14 @@ info "Installing Radarr dependencies..."
 message "Radarr deps installed successfully"
 
 #With the deps isntalled, time to install Radarr. Its currently in beta and there is no repo, so we need to get it from github and unpack it, etc
+info "Downloading and installing Radarr..."
 mkdir -p /root/Downloads
 cd /root/Downloads
 wget -q $( curl -s https://api.github.com/repos/Radarr/Radarr/releases | grep linux.tar.gz | grep browser_download_url | head -1 | cut -d \" -f 4 )
 tar -xf Radarr.*.linux.tar.gz
 mv /root/Downloads/Radarr /opt/Radarr
 chown -R plex: /opt/Radarr
+message "Radarr installed successfully"
 
 #Copy the systemd service file for Sonarr in to place, enable during startup, and start the service
 cp -fr ./sonarr.service /etc/systemd/system/
