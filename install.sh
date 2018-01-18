@@ -86,28 +86,28 @@ cd /opt/Ombi
 message "Ombi installed successfully"
 
 #Copy the systemd service file for Sonarr in to place, enable during startup, and start the service
-/bin/cp -fr $APPDIR/sonarr.service /etc/systemd/system/
+/bin/cp -fr $APPDIR/systemd/sonarr.service /etc/systemd/system/
 /bin/systemctl daemon-reload
 /bin/systemctl enable sonarr.service > /dev/null 2>&1
 /bin/systemctl start sonarr.service
 message "Sonarr service installed, enabled to start on boot, and started"
 
 #Copy the systemd service file for Radarr in to place, enable during startup, and start the service
-/bin/cp -fr $APPDIR/radarr.service /etc/systemd/system/
+/bin/cp -fr $APPDIR/systemd/radarr.service /etc/systemd/system/
 /bin/systemctl daemon-reload
 /bin/systemctl enable radarr.service > /dev/null 2>&1
 /bin/systemctl start radarr.service
 message "Radarr service installed, enabled to start on boot, and started"
 
 #Copy the systemd service file for SAB in to place, enable during startup, and start the service
-/bin/cp -fr $APPDIR/sabnzbd.service /etc/systemd/system/
+/bin/cp -fr $APPDIR/systemd/sabnzbd.service /etc/systemd/system/
 /bin/systemctl daemon-reload
 /bin/systemctl enable sabnzbd.service > /dev/null 2>&1
 /bin/systemctl start sabnzbd.service
 message "SABnzbd service installed, enabled to start on boot, and started"
 
 #Copy the systemd service file for Ombi in to place, enable during startup, and start the service
-/bin/cp -fr $APPDIR/ombi.service /etc/systemd/system/
+/bin/cp -fr $APPDIR/systemd/ombi.service /etc/systemd/system/
 /bin/systemctl daemon-reload
 /bin/systemctl enable ombi.service > /dev/null 2>&1
 /bin/systemctl start ombi.service
