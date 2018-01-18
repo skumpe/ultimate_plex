@@ -49,6 +49,14 @@ info "Installing Radarr dependencies..."
 /usr/bin/apt-get install libmono-cil-dev curl mediainfo -y > /dev/null 2>&1
 message "Radarr deps installed successfully"
 
+#With the deps isntalled, time to install Radarr. Its currently in beta and there is no repo, so we need to get it from github and unpack it, etc
+mkdir -p /root/Downloads
+cd /root/Downloads
+wget -q $( curl -s https://api.github.com/repos/Radarr/Radarr/releases | grep linux.tar.gz | grep browser_download_url | head -1 | cut -d \" -f 4 )
+tar -xf Radarr.*.linux.tar.gz
+mv /root/Downloads/Radarr /opt/Radarr
+chown -R plex: /opt/Radarr
+
 #Copy the systemd service file for Sonarr in to place, enable during startup, and start the service
 cp -fr ./sonarr.service /etc/systemd/system/
 /bin/systemctl daemon-reload
