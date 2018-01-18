@@ -1,0 +1,17 @@
+[Unit]
+Description=Radarr Daemon
+#Add the following to After once Google Drive integration is complete: plexunion.service
+After=syslog.target network.target
+
+[Service]
+User=plex
+Group=plex
+Type=simple
+ExecStart=/usr/bin/mono /opt/Radarr/Radarr.exe -nobrowser
+TimeoutStopSec=20
+KillMode=process
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target
+
