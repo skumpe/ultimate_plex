@@ -66,7 +66,7 @@ message "Radarr installed successfully"
 
 #Install SABnzbd and deps
 info "Installing SABnzbdplus and dependencies..."
-/usr/bin/apt-get install sabnzbdplus python-sabyenc par2-tbb -y
+/usr/bin/apt-get install sabnzbdplus python-sabyenc par2-tbb -y > /dev/null 2>&1
 message "SABnzbd installed successfully"
 
 #Copy the systemd service file for Sonarr in to place, enable during startup, and start the service
