@@ -68,4 +68,11 @@ message "Radarr installed successfully"
 /bin/systemctl daemon-reload
 /bin/systemctl enable sonarr.service > /dev/null 2>&1
 /bin/systemctl start sonarr.service
-message "Sonar service installed, enabled to start on boot, and started" 
+message "Sonarr service installed, enabled to start on boot, and started"
+
+#Copy the systemd service file for Radarr in to place, enable during startup, and start the service
+/bin/cp -fr $APPDIR/radarr.service /etc/systemd/system/
+/bin/systemctl daemon-reload
+/bin/systemctl enable radarr.service > /dev/null 2>&1
+/bin/systemctl start radarr.service
+message "Radarr service installed, enabled to start on boot, and started" 
