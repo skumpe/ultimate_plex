@@ -104,4 +104,11 @@ message "Radarr service installed, enabled to start on boot, and started"
 /bin/systemctl daemon-reload
 /bin/systemctl enable sabnzbd.service > /dev/null 2>&1
 /bin/systemctl start sabnzbd.service
-message "SABnzbd service installed, enabled to start on boot, and started" 
+message "SABnzbd service installed, enabled to start on boot, and started"
+
+#Copy the systemd service file for Ombi in to place, enable during startup, and start the service
+/bin/cp -fr $APPDIR/ombi.service /etc/systemd/system/
+/bin/systemctl daemon-reload
+/bin/systemctl enable ombi.service > /dev/null 2>&1
+/bin/systemctl start ombi.service
+message "Ombi service installed, enabled to start on boot, and started" 
